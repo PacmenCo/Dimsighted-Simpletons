@@ -10,8 +10,6 @@ public abstract class Player : MonoBehaviour
     private Color playerColor; public Color GetColor() { return playerColor; }
     private bool wasHitByTrap = false; public void WasHitByTrap() { if (!gameManager.IsCorrectPhase(GamePhase.EndOfTurnPhase)) { return; } wasHitByTrap = true; }
 
-    [SerializeField]
-    private GameObject playerPrefab;
     private GameManager gameManager;
     private GameObject player;
 
@@ -196,7 +194,7 @@ public abstract class Player : MonoBehaviour
 
     public abstract void MovePhase();
 
-    public abstract void ResetMapPhase();
+    public abstract void NewRound();
 
     internal void AwardPoints(int i)
     {
@@ -281,8 +279,10 @@ public abstract class Player : MonoBehaviour
             Destroy(player);
         }
 
-        player = Instantiate(playerPrefab, new Vector2(position.x, position.y), Quaternion.identity);
+        player = Instantiate(Resources.Load<GameObject>("Prefabs/PlayerSprite"), new Vector2(position.x, position.y), Quaternion.identity);
         player.GetComponent<SpriteRenderer>().color = playerColor;
+
+        NewRound();
     }
 
     public void StartNewTurn()
@@ -302,6 +302,7 @@ public abstract class Player : MonoBehaviour
             moveActions = 1;
         }
         wasHitByTrap = false;
+
     }
 
     public Color[] colors = { Color.red, Color.blue, Color.cyan, Color.green, Color.magenta, Color.yellow, Color.cyan, Color.gray };

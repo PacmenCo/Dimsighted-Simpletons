@@ -41,7 +41,7 @@ public class PlayerImpl : Player {
             moveDirection = (MoveDirection)UnityEngine.Random.Range(0, 4);   
         }
 
-        Debug.Log(GetActionsLeft());
+        //Debug.Log(GetActionsLeft());
         LookAtTile(GetXPos(), GetYPos()+5);
     }
 
@@ -58,9 +58,9 @@ public class PlayerImpl : Player {
         }
     }
 
-    public override void ResetMapPhase()
+    public override void NewRound()
     {
-       
+        Debug.Log("New round started");
     }
 
   

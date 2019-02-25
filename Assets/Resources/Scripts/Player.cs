@@ -178,16 +178,6 @@ public abstract class Player : MonoBehaviour
     }
 
 
-
-    /**
-     * Metoder nedenfor er not for use
-     * Metoder nedenfor er not for use
-     * Metoder nedenfor er not for use
-     * Metoder nedenfor er not for use!
-    **/
-
-
-
     public abstract string GetPlayerName();
 
     public abstract void ActionPhase();
@@ -195,6 +185,19 @@ public abstract class Player : MonoBehaviour
     public abstract void MovePhase();
 
     public abstract void NewRound();
+
+
+
+    /**
+     * Metoder nedenfor er not for personal use
+     * Metoder nedenfor er not for personal use
+     * Metoder nedenfor er not for personal use
+     * Metoder nedenfor er not for use!
+     * 
+     * Du bliver fredløs hvis de bruges!
+    **/
+
+    private void Update() { }
 
     internal void AwardPoints(int i)
     {

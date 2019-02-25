@@ -15,6 +15,7 @@ public class PlayerImpl : Player {
         {
             TradeActionsForExtraMovement();
         }
+
         /*
 
 
